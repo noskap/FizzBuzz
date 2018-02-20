@@ -19,13 +19,13 @@ namespace FizzBuzzConsoleApp
         private static void StartFizzBuzz()
         {
             Console.WriteLine("Fizz Buzz counter");
-            Console.Write("How high to count?");
+            Console.Write("How high to count? ");
             int d = 0;
             if (int.TryParse(Console.ReadLine(), out d))
             {
-                for (int i = 0; i < d; i++)
+                for (int i = 1; i < d+1; i++)
                 {
-                    Console.WriteLine(fB(d));
+                    Console.WriteLine(fB(i));
                 }
             }
             else
@@ -43,25 +43,58 @@ namespace FizzBuzzConsoleApp
         public static string fB(int inp)
         {
             string d = "";
-            try
-            {
-                int i = inp / 3;
-                d += "Fizz ";
-                try
-                {
-                    i = inp / 5;
-                    d += "Buzz";
-                }
-                catch (Exception e)
-                {
-                    return "";
-                }
-            }
-            catch (Exception e)
+            d += Fizz(inp);
+            d += Buzz(inp);
+            if (d == "")
             {
                 return inp.ToString();
             }
-            return d;
+            else
+            {
+                return d;
+            }
+        }
+
+        private static string Fizz(int inp)
+        {
+            decimal i = 0;
+            try
+            {
+                i = inp / 3;
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+            if((inp % 3)>0)
+            {
+                return "";
+            }else
+            {
+                return "Fizz ";
+            }
+            
+        }
+
+        private static string Buzz(int inp)
+        {
+            decimal i = 0;
+            try
+            {
+                i = inp / 5;
+            }
+            catch (Exception e)
+            {
+                 return "";
+            }
+            if ((inp % 5) > 0)
+            {
+                return "";
+            }
+            else
+            {
+                return "Buzz";
+            }
         }
     }
 }
