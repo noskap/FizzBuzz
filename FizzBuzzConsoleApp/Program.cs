@@ -84,6 +84,7 @@ namespace FizzBuzzConsoleApp
                 i = inp / 5;
             }
             catch (Exception e)
+
             {
                  return "";
             }
