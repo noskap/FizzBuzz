@@ -11,9 +11,6 @@ namespace FizzBuzzConsoleApp
         static void Main(string[] args)
         {
             StartFizzBuzz();
-            
-
-            Console.ReadLine();
         }
 
         private static void StartFizzBuzz()
@@ -34,7 +31,8 @@ namespace FizzBuzzConsoleApp
             }
 
             Console.WriteLine("Continue? y/n");
-            if (Console.ReadLine() == "Y" || Console.ReadLine() == "y")
+            string y = Console.ReadLine();
+            if (y == "Y" || y == "y")
             {// lowercase y doesnt work 
                 StartFizzBuzz();
             }
